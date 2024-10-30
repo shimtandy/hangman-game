@@ -3,6 +3,25 @@
   src: url("assets/fonts/MouseMemoirs-Regular.ttf");
 }
 
+
+
+/* Design system */
+* {
+  --color-dark-navy: hsl(250, 68, 27);
+  --color-blue: hsl(223, 100, 57);
+  --color-white: hsl(0, 0, 100);
+}
+
+html {
+  --font-size-heading-xl: 8.5rem;
+  --font-size-heading-l: 5.5rem;
+  --font-size-heading-m: 3.0rem;
+  --font-size-heading-s: 2.0rem;
+  --font-size-body: 1.625rem;
+}
+
+
+/* Reset */
 *,
 *::before,
 *::after {
@@ -26,7 +45,9 @@ body {
   background-size: cover;
   background-position: center;
   font-family: "Mouse Memoirs Regular";
+  font-size: var(--font-size-body);
 }
+
 
 @media only screen and (max-width: 425px) {
   body {
