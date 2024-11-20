@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Mouse Memoirs Regular";
-  src: url("assets/fonts/MouseMemoirs-Regular.ttf");
+  src: url("fonts/MouseMemoirs-Regular.ttf");
 }
 
 
@@ -18,6 +18,19 @@ html {
   --font-size-heading-m: 3.0rem;
   --font-size-heading-s: 2.0rem;
   --font-size-body: 1.625rem;
+}
+
+
+/* General Styles */
+.gradientText {
+  background: linear-gradient(#67B6FF, white);
+  background-clip: text;
+  color: rgba(1, 1, 1, 0);
+  
+}
+.borderText {
+  -webkit-text-stroke: 0.01em black;
+  color: white;
 }
 
 
@@ -40,7 +53,7 @@ img, picture, video, canvas, svg {
 body {
   min-height: 100vh;
 
-  background-image: url("assets/images/background-desktop.svg");
+  background-image: url("images/background-desktop.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -51,12 +64,12 @@ body {
 
 @media only screen and (max-width: 425px) {
   body {
-    background-image: url("assets/images/background-mobile.svg");
+    background-image: url("images/background-mobile.svg");
   }
 }
 
 @media only screen and (max-width: 1024px) {
   body {
-    background-image: url("assets/images/background-tablet.svg");
+    background-image: url("images/background-tablet.svg");
   }
 }

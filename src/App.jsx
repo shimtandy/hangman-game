@@ -1,10 +1,11 @@
+import Menu from './views/menu/Menu.jsx'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <h1>Hangman</h1>
+      <Menu></Menu>
     </>
   )
 }
