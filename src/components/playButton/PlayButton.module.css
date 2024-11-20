@@ -1,0 +1,53 @@
+.playButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #243041;
+
+    position: relative;
+
+    margin: 0;
+    border: 0;
+    aspect-ratio: 1;
+
+    border-radius: 10rem;
+}
+
+.playButton::before {
+    content: ' ';
+    background-color: #9D2DF5;
+
+    position: absolute;
+    top: 0;
+
+    width: 92%;
+    aspect-ratio: 1;
+    border-radius: 10rem;
+}
+
+.playButton::after {
+    content: ' ';
+    background: linear-gradient(#FE71FE, #7199FF);
+
+    position: absolute;
+    top: 0;
+
+    width: 85%;
+    aspect-ratio: 1;
+    border-radius: 10rem;
+}
+
+.playButton:hover {
+    cursor: pointer;
+    filter: brightness(120%);
+}
+
+.playButton:active {
+    filter: brightness(90%);
+}
+
+.playButton img {
+    width: 30%;
+
+    z-index: 10;
+}

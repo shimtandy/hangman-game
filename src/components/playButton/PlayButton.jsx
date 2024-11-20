@@ -1,7 +1,10 @@
+import buttonImage from '/images/icon-play.svg'
+import styles from './PlayButton.module.css'
+
 function PlayButton() {
     return (
-        <button>
-            <img src="images/icon-play.svg" />
+        <button className={styles.playButton}>
+            <img src={buttonImage} />
         </button>
     )
 }

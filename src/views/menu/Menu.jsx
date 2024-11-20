@@ -1,11 +1,12 @@
 import PlayButton from '../../components/playButton/PlayButton.jsx'
 import ButtonOne from '../../components/buttonOne/ButtonOne.jsx'
 import styles from './Menu.module.css'
+import logo from '/images/logo.svg'
 
 function Menu() {
     return (
         <div className={styles.menu}>
-            <h1 className="borderText"><span>The</span> <span className="gradientText">Hangman</span> <span>Game</span></h1>
+            <img src={logo} />
             <PlayButton />
             <ButtonOne 
                 text={'how to play'} 
