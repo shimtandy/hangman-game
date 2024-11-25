@@ -33,6 +33,47 @@ html {
   color: white;
 }
 
+.buttonOne {
+  font-family: inherit;
+  width: 100%;
+  border-radius: 2rem;
+
+  color: white;
+  background-color: #2463FF;
+
+  border: none;
+  box-shadow: inset 0px 1px #3C74FF,
+              inset 1px -1px #140E66, 
+              inset -1px -1px #140E66;
+  margin: 1px;
+}
+
+.buttonTwo {
+  font-family: inherit;
+  width: 100%;
+  border-radius: 2rem;
+
+  color: white;
+  background: linear-gradient(#FE71FE, #7199FF);
+
+  border: none;
+  box-shadow: inset 0px 1px #C642FB,
+              inset 1px -1px #140E66, 
+              inset -1px -1px #140E66;
+  margin: 1px;
+}
+
+.buttonOne:hover, 
+.buttonTwo:hover {
+  filter: brightness(1.3);
+  cursor: pointer;
+}
+
+.buttonOne:active,
+.buttonTwo:active {
+  filter: brightness(0.8);
+}
+
 
 /* Reset */
 *,
