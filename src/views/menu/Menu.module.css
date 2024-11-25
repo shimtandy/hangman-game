@@ -1,11 +1,29 @@
-.menu {
-    display: flex;
-    flex-direction: column;
+.menuLayout {
+    display: grid;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
+    grid-template-rows: repeat(4, auto);
 
-    padding: 1rem;
+    padding-inline: 5rem;
+}
 
-    background-color: blue;
+.menuLayout::before {
+    grid-row-start: 2;
+}
+
+.logo {
+    grid-row: 1 / 3;
+    width: 90%;
+
+    margin-bottom: 3rem;
+}
+
+.howToPlay {
+    margin-bottom: 3rem;
+}
+
+.playButton {
+    width: 160%;
+    margin-bottom: 3rem;
 }
 

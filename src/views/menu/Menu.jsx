@@ -4,17 +4,13 @@ import logo from '/images/logo.svg'
 
 function Menu() {
     return (
-        <div className={styles.menu}>
-            <img src={logo} />
-            <PlayButton />
+        <div className={"menuBackground " + styles.menuLayout}>
+            <img src={logo} className={styles.logo} />
+            <PlayButton additionalClasses={' ' + styles.playButton}/>
             <button 
-                className="buttonOne"
+                className={"buttonOne " + styles.howToPlay}
                 onClick={() => console.log("Clicked")}
             >How to Play</button>
-            <button
-                className="buttonTwo">
-                    Test
-                </button>
 
         </div>
     )
