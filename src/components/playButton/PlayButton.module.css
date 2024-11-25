@@ -44,6 +44,7 @@
 
 .playButton:active {
     filter: brightness(90%);
+    transform: scale(0.98);
 }
 
 .playButton img {

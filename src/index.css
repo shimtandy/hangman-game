@@ -33,34 +33,30 @@ html {
   color: white;
 }
 
-.buttonOne {
-  font-family: inherit;
-  width: 100%;
+.buttonOne,
+.buttonTwo {
+  padding: 0.4rem 3rem;
+  margin: 1px;
+  border: none;
   border-radius: 2rem;
 
+  font-family: inherit;
+  font-size: var(--font-size-heading-s);
   color: white;
-  background-color: #2463FF;
+}
 
-  border: none;
-  box-shadow: inset 0px 1px #3C74FF,
-              inset 1px -1px #140E66, 
-              inset -1px -1px #140E66;
-  margin: 1px;
+.buttonOne {
+  background-color: #2463FF;
+  box-shadow: inset 0px 2px #3C74FF,
+              inset 1px -2px #140E66, 
+              inset -1px -2px #140E66;
 }
 
 .buttonTwo {
-  font-family: inherit;
-  width: 100%;
-  border-radius: 2rem;
-
-  color: white;
   background: linear-gradient(#FE71FE, #7199FF);
-
-  border: none;
-  box-shadow: inset 0px 1px #C642FB,
-              inset 1px -1px #140E66, 
-              inset -1px -1px #140E66;
-  margin: 1px;
+  box-shadow: inset 0px 2px #C642FB,
+              inset 1px -2px #140E66, 
+              inset -1px -2px #140E66;
 }
 
 .buttonOne:hover, 
@@ -72,6 +68,7 @@ html {
 .buttonOne:active,
 .buttonTwo:active {
   filter: brightness(0.8);
+  transform: scale(1, 0.94);
 }
 
 
