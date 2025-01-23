@@ -7,8 +7,8 @@
 
 /* Design system */
 * {
-  --color-dark-navy: hsl(250, 68, 27);
-  --color-blue: hsl(223, 100, 57);
+  --color-dark-navy: rgb(38, 22, 116);
+  --color-blue: rgb(36, 98, 255);
   --color-white: hsl(0, 0, 100);
 }
 
@@ -29,8 +29,7 @@ html {
   
 }
 .borderText {
-  -webkit-text-stroke: 0.01em black;
-  color: white;
+  -webkit-text-stroke: 0.05em #243041;
 }
 
 .buttonOne,
