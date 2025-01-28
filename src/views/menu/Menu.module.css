@@ -20,6 +20,10 @@
 
 .howToPlay {
     margin-bottom: 3rem;
+    padding: 0.3em 2em;
+    
+    border-radius: 50px;
+    text-decoration: none;
 }
 
 .playButton {
