@@ -1,3 +1,8 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 .menuButton {
     border-radius: 50px;
     padding: 2em;
