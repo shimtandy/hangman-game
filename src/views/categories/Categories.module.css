@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 80%;
+    min-height: inherit;
+
+    padding-top: 2rem;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 2rem;
+
+    margin-block: auto;
+}
+
+.categories * {
+    background-color: var(--color-blue);
+    color: white;
+    font-size: var(--font-size-heading-m);
+    text-align: center;
+    text-decoration: none;
+
+    padding: 2rem;
+    border-radius: 1.5rem;
+}
+
+.categories *:hover {
+    background-color: rgb(65, 119, 255);;
+}

@@ -1,11 +1,12 @@
 import buttonImage from '/images/icon-play.svg'
 import styles from './PlayButton.module.css'
+import { Link } from 'react-router'
 
 function PlayButton({additionalClasses}) {
     return (
-        <button className={styles.playButton + additionalClasses}>
+        <Link to='/categories' className={styles.playButton + additionalClasses}>
             <img src={buttonImage} />
-        </button>
+        </Link>
     )
 }
 
