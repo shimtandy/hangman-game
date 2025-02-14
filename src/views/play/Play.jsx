@@ -3,7 +3,7 @@ import menuIcon from '/images/icon-menu.svg'
 import styles from './Play.module.css'
 import data from '../../data.json'
 import LetterButton from "../../components/letterButton/LetterButton"
-import { useState } from "react"
+import { useMemo, useState } from "react"
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -38,12 +38,14 @@ function createNewGuessArray(currentGuesses, newGuess) {
 
 export default function Play() {
     let [guesses, setGuesses] = useState(new Map([...ALPHABET].map(letter => [letter, false])))
-
     let { category } = useParams()
+    let word = useMemo(() => {
+        let words = data.categories[getCategoryIndex(category)]
+        return chooseRandomWord(words)
+    }, [])
+
     let title = category.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
-    let words = data.categories[getCategoryIndex(category)]
-    let word = chooseRandomWord(words)
-    
+
     return (
         <div className={styles.container}>
             <header className={styles.header}>
@@ -54,11 +56,16 @@ export default function Play() {
             </header>
 
             <main> 
-                {[...ALPHABET].map(letter => 
-                    <LetterButton key={letter} 
-                                  letter={letter} 
-                                  setGuessed={() => setGuesses(createNewGuessArray(guesses, letter))}
-                                  guessed={guesses.get(letter)} />)}
+                <div>
+                    <h2>{word.name}</h2>
+                </div>
+                <div>
+                    {[...ALPHABET].map(letter => 
+                        <LetterButton key={letter} 
+                                    letter={letter} 
+                                    setGuessed={() => setGuesses(createNewGuessArray(guesses, letter))}
+                                    guessed={guesses.get(letter)} />)}
+                </div>
             </main>
         </div>
     )
