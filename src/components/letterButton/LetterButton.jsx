@@ -1,8 +1,9 @@
-import { useState } from "react"
+import styles from './LetterButton.module.css'
 
-export default function LetterButton({letter, setGuessed}) {
+
+export default function LetterButton({letter, setGuessed, guessed}) {
 
     return (
-        <button onClick={() => setGuessed(letter)}>{letter}</button>
+        <button className={guessed ? styles.guessed : null} onClick={setGuessed}>{letter}</button>
     )
 }

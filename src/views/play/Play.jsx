@@ -43,9 +43,7 @@ export default function Play() {
     let title = category.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
     let words = data.categories[getCategoryIndex(category)]
     let word = chooseRandomWord(words)
-
-    console.log(guesses)
-
+    
     return (
         <div className={styles.container}>
             <header className={styles.header}>
@@ -54,12 +52,13 @@ export default function Play() {
                 </button>
                 <h1 className={styles.heading}>{title}</h1>
             </header>
-            
+
             <main> 
                 {[...ALPHABET].map(letter => 
                     <LetterButton key={letter} 
                                   letter={letter} 
-                                  setGuessed={() => setGuesses(createNewGuessArray(guesses, letter))} />)}
+                                  setGuessed={() => setGuesses(createNewGuessArray(guesses, letter))}
+                                  guessed={guesses.get(letter)} />)}
             </main>
         </div>
     )
