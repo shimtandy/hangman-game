@@ -36,6 +36,35 @@ function createNewGuessArray(currentGuesses, newGuess) {
     return newGuesses
 }
 
+function createAnswerDisplay(answer, guesses) {
+    let letterLists = []
+
+    for (let word of answer.split(' ')) {
+        let letterListItems = []
+
+        for (let letter of word) {
+            if (guesses.get(letter.toUpperCase())) {
+                letterListItems.push(<li>{letter}</li>)
+            } else {
+                letterListItems.push(<li>_</li>)
+            } 
+        }
+
+        letterLists.push(<ol>{letterListItems}</ol>)
+    }
+
+    if (letterLists.length > 1) {
+        let finalDisplay = []
+
+        for (let letterList of letterLists) {
+            finalDisplay.push(<li>{letterList}</li>)
+        }
+        return <ol>{finalDisplay}</ol>
+    } else {
+        return letterLists[0]
+    }
+}
+
 export default function Play() {
     let [guesses, setGuesses] = useState(new Map([...ALPHABET].map(letter => [letter, false])))
     let { category } = useParams()
@@ -43,8 +72,12 @@ export default function Play() {
         let words = data.categories[getCategoryIndex(category)]
         return chooseRandomWord(words)
     }, [])
-
     let title = category.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+
+    let answerDisplay = createAnswerDisplay(word['name'], guesses)
+
+    console.log(word.name)
+    console.log(answerDisplay)
 
     return (
         <div className={styles.container}>
@@ -57,7 +90,7 @@ export default function Play() {
 
             <main> 
                 <div>
-                    <h2>{word.name}</h2>
+                    {answerDisplay}
                 </div>
                 <div>
                     {[...ALPHABET].map(letter => 
