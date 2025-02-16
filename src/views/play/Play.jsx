@@ -44,13 +44,13 @@ function createAnswerDisplay(answer, guesses) {
 
         for (let letter of word) {
             if (guesses.get(letter.toUpperCase())) {
-                letterListItems.push(<li>{letter}</li>)
+                letterListItems.push(<li className={styles.displayLetter}>{letter}</li>)
             } else {
-                letterListItems.push(<li>_</li>)
+                letterListItems.push(<li className={styles.displayLetter}>_</li>)
             } 
         }
 
-        letterLists.push(<ol>{letterListItems}</ol>)
+        letterLists.push(<ol className={styles.displayWord}>{letterListItems}</ol>)
     }
 
     if (letterLists.length > 1) {
@@ -59,7 +59,7 @@ function createAnswerDisplay(answer, guesses) {
         for (let letterList of letterLists) {
             finalDisplay.push(<li>{letterList}</li>)
         }
-        return <ol>{finalDisplay}</ol>
+        return <ol className={styles.displayWord}>{finalDisplay}</ol>
     } else {
         return letterLists[0]
     }
@@ -77,7 +77,6 @@ export default function Play() {
     let answerDisplay = createAnswerDisplay(word['name'], guesses)
 
     console.log(word.name)
-    console.log(answerDisplay)
 
     return (
         <div className={styles.container}>
@@ -89,7 +88,7 @@ export default function Play() {
             </header>
 
             <main> 
-                <div>
+                <div className={styles.answerDisplay}>
                     {answerDisplay}
                 </div>
                 <div>
