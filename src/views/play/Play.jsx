@@ -59,7 +59,7 @@ function createAnswerDisplay(answer, guesses) {
         for (let letterList of letterLists) {
             finalDisplay.push(<li>{letterList}</li>)
         }
-        return <ol className={styles.displayWord}>{finalDisplay}</ol>
+        return <ol className={styles.displayWords}>{finalDisplay}</ol>
     } else {
         return letterLists[0]
     }
