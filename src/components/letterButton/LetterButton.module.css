@@ -1,3 +1,19 @@
+.letter {
+    font: inherit;
+    font-size: var(--font-size-heading-m);
+    color: var(--color-dark-navy);
+    background-color: white;
+    border: none;
+    border-radius: 1rem;
+    width: 5rem;
+    cursor: pointer;
+}
+
+.letter:hover {
+    background-color: var(--color-blue);
+    color: white;
+}
+
 .guessed {
-    background-color: red;
+    opacity: 0.6
 }

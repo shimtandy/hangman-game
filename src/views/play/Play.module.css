@@ -1,6 +1,9 @@
 .container {
     display: flex;
     flex-direction: column;
+
+    max-width: 80vw;
+    height: 100vh;
 }
 
 .menuButton {
@@ -17,6 +20,19 @@
 
 .header {
     display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gameArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 3rem;
+
+    height: 100%;
+    max-width: 80vw;
+    
 }
 
 .answerDisplay {
@@ -24,6 +40,16 @@
     justify-content: center;
     align-items: center;
     margin-top: 2em;
+}
+
+.answerDisplay {
+    display: flex;
+    flex-direction: column;
+}
+
+.answerDisplay > ol {
+    display: flex;
+    gap: 1rem;
 }
 
 .displayWord {
@@ -40,4 +66,15 @@
     height: 6rem;
     width: 6rem;
     text-align: center;
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.letterHidden {
+    font-size: 0;
+    opacity: 0.7;
 }

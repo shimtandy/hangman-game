@@ -21,7 +21,7 @@ function getCategoryIndex(category) {
         case 'animals':
             return 'Animals';
         case 'sport':
-            return 'Sport';
+            return 'Sports';
     }
 }
 
@@ -46,7 +46,7 @@ function createAnswerDisplay(answer, guesses) {
             if (guesses.get(letter.toUpperCase())) {
                 letterListItems.push(<li className={styles.displayLetter}>{letter}</li>)
             } else {
-                letterListItems.push(<li className={styles.displayLetter}>_</li>)
+                letterListItems.push(<li className={styles.displayLetter + ' ' + styles.letterHidden}>_</li>)
             } 
         }
 
@@ -87,11 +87,11 @@ export default function Play() {
                 <h1 className={styles.heading}>{title}</h1>
             </header>
 
-            <main> 
+            <main className={styles.gameArea}> 
                 <div className={styles.answerDisplay}>
                     {answerDisplay}
                 </div>
-                <div>
+                <div className={styles.keyboard}>
                     {[...ALPHABET].map(letter => 
                         <LetterButton key={letter} 
                                     letter={letter} 
