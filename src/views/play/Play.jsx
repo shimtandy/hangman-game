@@ -65,8 +65,8 @@ function createAnswerDisplay(answer, guesses) {
 
 export default function Play() {
     let [guesses, setGuesses] = useState(new Map([...ALPHABET].map(letter => [letter, false])))
-    let [lives, setLives] = useState(10)
-    let [showMenu, setShowMenu] = useState(false)
+    let [lives, setLives] = useState(8)
+    let [paused, setPaused] = useState(false)
     let { category } = useParams()
     let word = useMemo(() => {
         let words = data.categories[getCategoryIndex(category)]
@@ -76,18 +76,27 @@ export default function Play() {
 
     let answerDisplay = createAnswerDisplay(word['name'], guesses)
 
-    console.log(word.name)
+    let win = word.name.split('').map(letter => guesses.get(letter.toUpperCase())).reduce((accumulator, current) => accumulator && current, true)
+    
+    let menu = null;
+    if (paused) {
+        menu = <MenuModal gameState='paused' setPaused={setPaused} />
+    } else if (lives === 0) {
+        menu = <MenuModal gameState='lose' setPaused={setPaused} />
+    } else if (win) {
+        menu = <MenuModal gameState='win' setPaused={setPaused} />
+    }
 
     return (
         <div className={styles.container}>
-            {showMenu && <MenuModal gameState='paused' setShowMenu={setShowMenu} />}
+            {menu}
             <header className={styles.header}>
-                <button className={styles.menuButton} onClick={() => setShowMenu(true)}>
+                <button className={styles.menuButton} onClick={() => setPaused(true)}>
                     <img src={menuIcon} />
                 </button>
                 <h1 className={styles.heading}>{title}</h1>
 
-                <progress className={styles.lifeBar} max='10' value={lives}></progress>
+                <progress className={styles.lifeBar} max='8' value={lives}></progress>
                 <img src={heartIcon} className={styles.heartIcon} />
             </header>
 
