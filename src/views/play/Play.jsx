@@ -5,6 +5,7 @@ import styles from './Play.module.css'
 import data from '../../data.json'
 import LetterButton from "../../components/letterButton/LetterButton"
 import { useMemo, useState } from "react"
+import MenuModal from "../../components/menuModal/MenuModal"
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -65,6 +66,7 @@ function createAnswerDisplay(answer, guesses) {
 export default function Play() {
     let [guesses, setGuesses] = useState(new Map([...ALPHABET].map(letter => [letter, false])))
     let [lives, setLives] = useState(10)
+    let [showMenu, setShowMenu] = useState(false)
     let { category } = useParams()
     let word = useMemo(() => {
         let words = data.categories[getCategoryIndex(category)]
@@ -78,8 +80,9 @@ export default function Play() {
 
     return (
         <div className={styles.container}>
+            {showMenu && <MenuModal gameState='paused' />}
             <header className={styles.header}>
-                <button className={styles.menuButton} onClick={() => window.history.back()}>
+                <button className={styles.menuButton} onClick={() => setShowMenu(true)}>
                     <img src={menuIcon} />
                 </button>
                 <h1 className={styles.heading}>{title}</h1>
