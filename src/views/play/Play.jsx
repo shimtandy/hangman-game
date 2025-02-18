@@ -80,7 +80,7 @@ export default function Play() {
 
     return (
         <div className={styles.container}>
-            {showMenu && <MenuModal gameState='paused' />}
+            {showMenu && <MenuModal gameState='paused' setShowMenu={setShowMenu} />}
             <header className={styles.header}>
                 <button className={styles.menuButton} onClick={() => setShowMenu(true)}>
                     <img src={menuIcon} />

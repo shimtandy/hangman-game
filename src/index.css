@@ -37,6 +37,11 @@ html {
   font-family: inherit;
   font-size: var(--font-size-heading-s);
   color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.3rem 3rem;
+  text-align: center;
+  text-decoration: none;
 }
 
 .buttonOne {

@@ -2,14 +2,50 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    opacity: 0.5;
     color: white;
+    text-align: center;
 
+    height: 100vh;
+    width: 100vw;
     position: absolute;
     left: 0;
     top: 0;
     z-index: 100;
-    height: 100vh;
-    width: 100vw;
+}
+
+.modal::before {
+    content: ' ';
+    background-color: black;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    z-index: -1;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    /* Duplicated styling here. The same styling is used in the main menu
+       - without the alpha channel for transparency though. */
+    background: linear-gradient(#344abae3, #001479c1);
+    box-shadow: 
+    inset 0 4px 0 4px #3c73ffbc,
+    inset 0 -4px 0 5px #140e66b9;
+
+    border-radius: 2rem;
+    padding: 6rem 10rem;
+
+    position: relative;
+}
+
+.title {
+    font-size: var(--font-size-heading-l);
+    position: absolute;
+    top: -3.5rem;
+    left: 50%;
+    transform: translateX(-50%);
 }

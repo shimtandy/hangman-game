@@ -1,6 +1,7 @@
+import { Link } from 'react-router'
 import styles from './MenuModal.module.css'
 
-export default function MenuModal({gameState}) {
+export default function MenuModal({gameState, setShowMenu}) {
     let title = 'Paused'
     if (gameState === 'win') {
         title = 'You win'
@@ -10,7 +11,12 @@ export default function MenuModal({gameState}) {
     return (
         <div className={styles.modal}>
             <div className={styles.menu}>
-                <h1>{title}</h1>
+                <h1 className={styles.title + ' gradientText'}>{title}</h1>
+                <button 
+                    className='buttonOne'
+                    onClick={() => setShowMenu(false)}>Continue</button>
+                <Link className='buttonOne' to='/categories'>New Category</Link>
+                <Link className='buttonTwo' to='/'>Quit</Link>
             </div>
             
         </div>
