@@ -1,5 +1,6 @@
 import { useParams } from "react-router"
 import menuIcon from '/images/icon-menu.svg'
+import heartIcon from '/images/icon-heart.svg'
 import styles from './Play.module.css'
 import data from '../../data.json'
 import LetterButton from "../../components/letterButton/LetterButton"
@@ -30,11 +31,6 @@ function chooseRandomWord(words) {
     return words[randomIndex]
 }
 
-function createNewGuessArray(currentGuesses, newGuess) {
-    let newGuesses = new Map(currentGuesses)
-    newGuesses.set(newGuess, true)
-    return newGuesses
-}
 
 function createAnswerDisplay(answer, guesses) {
     let letterLists = []
@@ -65,8 +61,10 @@ function createAnswerDisplay(answer, guesses) {
     }
 }
 
+
 export default function Play() {
     let [guesses, setGuesses] = useState(new Map([...ALPHABET].map(letter => [letter, false])))
+    let [lives, setLives] = useState(10)
     let { category } = useParams()
     let word = useMemo(() => {
         let words = data.categories[getCategoryIndex(category)]
@@ -85,6 +83,9 @@ export default function Play() {
                     <img src={menuIcon} />
                 </button>
                 <h1 className={styles.heading}>{title}</h1>
+
+                <progress className={styles.lifeBar} max='10' value={lives}></progress>
+                <img src={heartIcon} className={styles.heartIcon} />
             </header>
 
             <main className={styles.gameArea}> 
@@ -93,10 +94,14 @@ export default function Play() {
                 </div>
                 <div className={styles.keyboard}>
                     {[...ALPHABET].map(letter => 
-                        <LetterButton key={letter} 
+                        <LetterButton 
+                                    key={letter} 
                                     letter={letter} 
-                                    setGuessed={() => setGuesses(createNewGuessArray(guesses, letter))}
-                                    guessed={guesses.get(letter)} />)}
+                                    answer={word.name}
+                                    setGuessed={setGuesses}
+                                    guessed={guesses}
+                                    setLives={setLives} 
+                        />)}
                 </div>
             </main>
         </div>
